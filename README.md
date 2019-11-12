@@ -1,7 +1,7 @@
-This is the readme for Zain Khan's CSC 690 Final Project
+##This is the readme for Zain Khan's CSC 690 Final Project
 
-Members: 
+##Members: 
 	Zain Khan
 
-Proposal:
+##Proposal:
 	I want to redesign 
