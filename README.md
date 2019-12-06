@@ -1,7 +1,7 @@
 ## This is the readme for Zain Khan's CSC 690 Final Project
 
 ## Members: 
-	Zain Khan
+	Zain Khan and Amari Bolmer
 
 ## Proposal:
 	I want to ceate an app that can store and keep track where you parked your car. 
