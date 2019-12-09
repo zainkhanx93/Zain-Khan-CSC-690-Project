@@ -15,18 +15,17 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var addressLabel: UILabel!
     
+    
+    let locationManager = CLLocationManager()
+    let regionInMeters: Double = 150
+    var priorLocation: CLLocation?
+    
     override func viewDidLoad()
       {
         super.viewDidLoad()
         checkLocationServices()
       }
-    
-    
 
-
-    let locationManager = CLLocationManager()
-    let regionInMeters: Double = 150
-    var priorLocation: CLLocation?
         
   
     func setupLocationManager()
@@ -53,9 +52,8 @@ class ViewController: UIViewController {
             
             func checkLocationAuthorization() {
                 switch CLLocationManager.authorizationStatus(){
-                case .authorizedWhenInUse:
+                case.authorizedWhenInUse:
                     Map.showsUserLocation = true
-                  //  centerViewOnUserLocation()
                     locationManager.startUpdatingLocation()
                     centerView()
                     locationManager.startUpdatingLocation()
@@ -104,7 +102,7 @@ class ViewController: UIViewController {
         }
     }
 extension ViewController: MKMapViewDelegate {
-    func Map(_ Map: MKMapView, regionDidChange animated: Bool)
+    func mapView(_ Map: MKMapView, regionDidChangeAnimated animated: Bool)
     {
         let center = getLocation(for: Map)
         let GeoLocation = CLGeocoder()
@@ -112,15 +110,11 @@ extension ViewController: MKMapViewDelegate {
         
         guard let priorLocation = self.priorLocation else {return}
         
-        guard center.distance(from: priorLocation) > 50 else {return}
+        guard center.distance(from: priorLocation) > 5 else {return}
         self.priorLocation = center
-        GeoLocation.reverseGeocodeLocation(center)
-        {
-            [weak self] (placemarks, error) in
-            guard let self = self else
-            {
-                return
-            }
+        GeoLocation.reverseGeocodeLocation(center){ [weak self] (placemarks, error) in
+        guard let self = self else { return }
+            
             if let _ = error {
                 return
             }
@@ -134,7 +128,7 @@ extension ViewController: MKMapViewDelegate {
             DispatchQueue.main.async {
                 self.addressLabel.text = "\(StNumber) \(StName)"
             }
+            }
         }
     }
     
-}
