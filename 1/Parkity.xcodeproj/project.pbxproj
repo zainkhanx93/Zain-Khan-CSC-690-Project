@@ -37,7 +37,7 @@
 
 /* Begin PBXFileReference section */
 		98E21ED2239DD91E00779F82 /* Pods */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Pods; sourceTree = SOURCE_ROOT; };
-		BF158E24239A58AC000357F3 /* 1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF158E24239A58AC000357F3 /* Parkity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parkity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF158E27239A58AC000357F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF158E29239A58AC000357F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BF158E2B239A58AC000357F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,10 +45,10 @@
 		BF158E30239A58AE000357F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF158E33239A58AE000357F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF158E35239A58AE000357F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF158E3A239A58AF000357F3 /* 1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF158E3A239A58AF000357F3 /* ParkityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF158E3E239A58AF000357F3 /* _Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _Tests.swift; sourceTree = "<group>"; };
 		BF158E40239A58AF000357F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF158E45239A58AF000357F3 /* 1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF158E45239A58AF000357F3 /* ParkityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF158E49239A58AF000357F3 /* _UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _UITests.swift; sourceTree = "<group>"; };
 		BF158E4B239A58AF000357F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,9 +92,9 @@
 		BF158E25239A58AC000357F3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BF158E24239A58AC000357F3 /* 1.app */,
-				BF158E3A239A58AF000357F3 /* 1Tests.xctest */,
-				BF158E45239A58AF000357F3 /* 1UITests.xctest */,
+				BF158E24239A58AC000357F3 /* Parkity.app */,
+				BF158E3A239A58AF000357F3 /* ParkityTests.xctest */,
+				BF158E45239A58AF000357F3 /* ParkityUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,9 +134,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BF158E23239A58AC000357F3 /* 1 */ = {
+		BF158E23239A58AC000357F3 /* Parkity */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BF158E4E239A58AF000357F3 /* Build configuration list for PBXNativeTarget "1" */;
+			buildConfigurationList = BF158E4E239A58AF000357F3 /* Build configuration list for PBXNativeTarget "Parkity" */;
 			buildPhases = (
 				BF158E20239A58AC000357F3 /* Sources */,
 				BF158E21239A58AC000357F3 /* Frameworks */,
@@ -146,14 +146,14 @@
 			);
 			dependencies = (
 			);
-			name = 1;
+			name = Parkity;
 			productName = 1;
-			productReference = BF158E24239A58AC000357F3 /* 1.app */;
+			productReference = BF158E24239A58AC000357F3 /* Parkity.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BF158E39239A58AF000357F3 /* 1Tests */ = {
+		BF158E39239A58AF000357F3 /* ParkityTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BF158E51239A58AF000357F3 /* Build configuration list for PBXNativeTarget "1Tests" */;
+			buildConfigurationList = BF158E51239A58AF000357F3 /* Build configuration list for PBXNativeTarget "ParkityTests" */;
 			buildPhases = (
 				BF158E36239A58AF000357F3 /* Sources */,
 				BF158E37239A58AF000357F3 /* Frameworks */,
@@ -164,14 +164,14 @@
 			dependencies = (
 				BF158E3C239A58AF000357F3 /* PBXTargetDependency */,
 			);
-			name = 1Tests;
+			name = ParkityTests;
 			productName = 1Tests;
-			productReference = BF158E3A239A58AF000357F3 /* 1Tests.xctest */;
+			productReference = BF158E3A239A58AF000357F3 /* ParkityTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BF158E44239A58AF000357F3 /* 1UITests */ = {
+		BF158E44239A58AF000357F3 /* ParkityUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BF158E54239A58AF000357F3 /* Build configuration list for PBXNativeTarget "1UITests" */;
+			buildConfigurationList = BF158E54239A58AF000357F3 /* Build configuration list for PBXNativeTarget "ParkityUITests" */;
 			buildPhases = (
 				BF158E41239A58AF000357F3 /* Sources */,
 				BF158E42239A58AF000357F3 /* Frameworks */,
@@ -182,9 +182,9 @@
 			dependencies = (
 				BF158E47239A58AF000357F3 /* PBXTargetDependency */,
 			);
-			name = 1UITests;
+			name = ParkityUITests;
 			productName = 1UITests;
-			productReference = BF158E45239A58AF000357F3 /* 1UITests.xctest */;
+			productReference = BF158E45239A58AF000357F3 /* ParkityUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -210,7 +210,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BF158E1F239A58AC000357F3 /* Build configuration list for PBXProject "1" */;
+			buildConfigurationList = BF158E1F239A58AC000357F3 /* Build configuration list for PBXProject "Parkity" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -223,9 +223,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BF158E23239A58AC000357F3 /* 1 */,
-				BF158E39239A58AF000357F3 /* 1Tests */,
-				BF158E44239A58AF000357F3 /* 1UITests */,
+				BF158E23239A58AC000357F3 /* Parkity */,
+				BF158E39239A58AF000357F3 /* ParkityTests */,
+				BF158E44239A58AF000357F3 /* ParkityUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -290,12 +290,12 @@
 /* Begin PBXTargetDependency section */
 		BF158E3C239A58AF000357F3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BF158E23239A58AC000357F3 /* 1 */;
+			target = BF158E23239A58AC000357F3 /* Parkity */;
 			targetProxy = BF158E3B239A58AF000357F3 /* PBXContainerItemProxy */;
 		};
 		BF158E47239A58AF000357F3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BF158E23239A58AC000357F3 /* 1 */;
+			target = BF158E23239A58AC000357F3 /* Parkity */;
 			targetProxy = BF158E46239A58AF000357F3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -488,7 +488,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/1.app/1";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Parkity.app/Parkity";
 			};
 			name = Debug;
 		};
@@ -510,7 +510,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/1.app/1";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Parkity.app/Parkity";
 			};
 			name = Release;
 		};
@@ -557,7 +557,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BF158E1F239A58AC000357F3 /* Build configuration list for PBXProject "1" */ = {
+		BF158E1F239A58AC000357F3 /* Build configuration list for PBXProject "Parkity" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BF158E4C239A58AF000357F3 /* Debug */,
@@ -566,7 +566,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BF158E4E239A58AF000357F3 /* Build configuration list for PBXNativeTarget "1" */ = {
+		BF158E4E239A58AF000357F3 /* Build configuration list for PBXNativeTarget "Parkity" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BF158E4F239A58AF000357F3 /* Debug */,
@@ -575,7 +575,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BF158E51239A58AF000357F3 /* Build configuration list for PBXNativeTarget "1Tests" */ = {
+		BF158E51239A58AF000357F3 /* Build configuration list for PBXNativeTarget "ParkityTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BF158E52239A58AF000357F3 /* Debug */,
@@ -584,7 +584,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BF158E54239A58AF000357F3 /* Build configuration list for PBXNativeTarget "1UITests" */ = {
+		BF158E54239A58AF000357F3 /* Build configuration list for PBXNativeTarget "ParkityUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BF158E55239A58AF000357F3 /* Debug */,
