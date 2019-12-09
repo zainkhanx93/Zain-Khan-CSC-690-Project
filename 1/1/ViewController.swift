@@ -21,7 +21,7 @@ class ViewController: UIViewController {
 
 
     let locationManager = CLLocationManager()
-    let regionInMeters: Double = 10000
+    let regionInMeters: Double = 150
         
   
     func setupLocationManager()
@@ -85,7 +85,11 @@ class ViewController: UIViewController {
         
         
         func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+<<<<<<< HEAD
             acheckLocationAuthorization()
+=======
+            checkLocationAuthorization()
+>>>>>>> bce463179ca85929ba9daad3dcb9a63a327902d7
         }
     }
 
