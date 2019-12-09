@@ -85,7 +85,7 @@ class ViewController: UIViewController {
         
         
         func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-            acheckLocationAuthorization()
+            checkLocationAuthorization()
         }
     }
 
