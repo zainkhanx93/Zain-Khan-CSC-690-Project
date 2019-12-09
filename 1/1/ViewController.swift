@@ -26,7 +26,7 @@ class ViewController: UIViewController {
 
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 150
-    var priorLocation: CLLocation!
+    var priorLocation: CLLocation?
         
   
     func setupLocationManager()
@@ -109,8 +109,11 @@ extension ViewController: MKMapViewDelegate {
         let center = getLocation(for: Map)
         let GeoLocation = CLGeocoder()
         
+        
+        guard let priorLocation = self.priorLocation else {return}
+        
         guard center.distance(from: priorLocation) > 50 else {return}
-        priorLocation = center
+        self.priorLocation = center
         GeoLocation.reverseGeocodeLocation(center)
         {
             [weak self] (placemarks, error) in
@@ -125,8 +128,8 @@ extension ViewController: MKMapViewDelegate {
             guard let placemarks = placemarks?.first else {
                 return
             }
-            let StNumber = placemarks.subThoroughfare
-            let StName = placemarks.subThoroughfare
+            let StNumber = placemarks.subThoroughfare ?? ""
+            let StName = placemarks.thoroughfare ?? ""
             
             DispatchQueue.main.async {
                 self.addressLabel.text = "\(StNumber) \(StName)"

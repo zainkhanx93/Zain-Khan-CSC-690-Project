@@ -53,7 +53,7 @@
                     </view>
                     <connections>
                         <outlet property="Map" destination="bZI-14-aIi" id="gBM-yr-jWQ"/>
-                        <outlet property="adress" destination="zw8-Bj-5lH" id="OAc-bl-RdE"/>
+                        <outlet property="addressLabel" destination="zw8-Bj-5lH" id="ueV-qp-eDR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
