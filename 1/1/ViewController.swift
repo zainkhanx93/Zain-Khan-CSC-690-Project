@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  1
 //
-//  Created by Zain Khan on 12/6/19.
-//  Copyright © 2019 Zain Khan. All rights reserved.
+//  Created by Zain Khan and Amari on 12/6/19.
+//  Copyright © 2019 Zain Khan. and Amari All rights reserved.
 //
 
 import UIKit
@@ -21,10 +21,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     let regionInMeters: Double = 150
     var priorLocation: CLLocation?
     
+    var pinLocation: CLLocationCoordinate2D?
+    
     @IBAction func getDirectionToCar(sender : UIButton)
     {
-        self.goToPin(destination: lpinForUserLocation.coordinate)
+       // self.goToPin(destination: )
+        
+        self.goToPin(destination: pinLocation! )
+        print(pinLocation)
+        
     }
+    
+    
     
     @IBAction func findUserLocationAndDropPin(sender: UIButton) {
         self.setPin()
@@ -112,6 +120,7 @@ extension ViewController {
                if let loc = locationManager.location
                {
                    pinForUserLocation.coordinate = loc.coordinate
+                pinLocation = loc.coordinate
                }
                
                pinForUserLocation.title  = "Car Location"
@@ -119,6 +128,7 @@ extension ViewController {
         Map.showAnnotations([pinForUserLocation], animated: true)
         
         self.goToPin(destination:pinForUserLocation.coordinate)
+        
         
     }
     
