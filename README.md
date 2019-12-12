@@ -10,9 +10,10 @@
 	
 ## Feattures
 	- store location of car using gps (drop pin)
-	- allows u to enter information such 
-		- if you either parked on the street or garage
-		- which floor and parking space you parked in 
-		- keeps track of how long you have parked
-		- if parking has a meter and has a time limit; a timer will be added to  give u extact time left in meter
-		- more features coming soon
+	- Shows map
+	- shows user location
+	- Has a welcome/launch screen
+	- tracks destance from user to parked car
+	- shows address label
+	- Button to park the car
+	- Button to get distance to car
