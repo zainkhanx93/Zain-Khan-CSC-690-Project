@@ -10,19 +10,25 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     @IBOutlet weak var Map: MKMapView!
     
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var buttonset: UIButton!
+    @IBOutlet weak var GoButton: UIButton!
     
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 150
     var priorLocation: CLLocation?
     
-
+    @IBAction func getDirectionToCar(sender : UIButton)
+    {
+        self.goToPin(destination: lpinForUserLocation.coordinate)
+    }
+    
     @IBAction func findUserLocationAndDropPin(sender: UIButton) {
         self.setPin()
+        
     }
     
     
@@ -30,6 +36,8 @@ class ViewController: UIViewController {
       {
         super.viewDidLoad()
         checkLocationServices()
+        
+        Map.delegate = self
 
       }
 
@@ -65,7 +73,7 @@ class ViewController: UIViewController {
                     setupLocationManager()
                     checkLocationAuthorization()
                 } else {
-                    // Show alert letting the user know they have to turn this on.
+                    //  alert letting the user know they have to turn this on.
                 }
             }
             
@@ -89,43 +97,69 @@ class ViewController: UIViewController {
 
 
 
-    extension ViewController: CLLocationManagerDelegate {
+    extension ViewController {
         
-       /* func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-            guard let location = locations.last else
-            {
-                return
-            }
-            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-            Map.setRegion(region, animated: true)
-        }
-        */
+       
         
         func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
             checkLocationAuthorization()
         }
     }
 
-extension ViewController: MKMapViewDelegate {
+extension ViewController {
      func setPin(){
-        //var userLocationCoordinates = getLocation(for: Map)
                let pinForUserLocation = MKPointAnnotation()
                if let loc = locationManager.location
                {
                    pinForUserLocation.coordinate = loc.coordinate
                }
-               //pinForUserLocation.coordinate = userLocationCoordinates.location.coordinate
+               
                pinForUserLocation.title  = "Car Location"
-//               pinForUserLocation.subtitle = "Saved Location"
                Map.addAnnotation(pinForUserLocation).self
         Map.showAnnotations([pinForUserLocation], animated: true)
         
-        
-        
+        self.goToPin(destination:pinForUserLocation.coordinate)
         
     }
-//    func mapView(_ Map: MKMapView, regionDidChangeAnimated animated: Bool)
+    
+    func goToPin(destination : CLLocationCoordinate2D){
+        let CL = (locationManager.location?.coordinate)!
+        
+        let CLPlaceMark = MKPlacemark(coordinate: CL)
+        let destPlaceMark = MKPlacemark(coordinate: destination)
+        
+        let CLItem = MKMapItem(placemark: CLPlaceMark)
+        let destItem = MKMapItem(placemark: destPlaceMark)
+        
+        let destinationRequest = MKDirections.Request()
+        destinationRequest.source = CLItem
+        destinationRequest.destination = destItem
+        destinationRequest.transportType = .walking
+        destinationRequest.requestsAlternateRoutes = true
+        
+        let directions = MKDirections(request: destinationRequest)
+        directions.calculate { (response, error) in
+            guard let response = response else {
+                if let error = error {
+                    print("Something is wrong : ")
+                }
+                return
+            }
+            
+          let route = response.routes[0]
+          self.Map.addOverlay(route.polyline)
+          self.Map.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+            
+        }
+    }
+    
+    func Map (_ Map: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer{
+        let renderer = MKPolylineRenderer(overlay: overlay as! MKPolyline)
+        renderer.strokeColor = UIColor.green
+        renderer.lineWidth = 3.0
+        return renderer
+    }
+
     func mapView(_ mapview: MKMapView, viewFor annotation: MKAnnotation)-> MKAnnotationView?
     {
         var view = mapview.dequeueReusableAnnotationView(withIdentifier: "resuseIdentifer") as? MKMarkerAnnotationView
