@@ -11,11 +11,11 @@
 	Parkity
 	
 ## Feattures
-	- store location of car using gps (drop pin)
-	- Shows map
-	- shows user location
 	- Has a welcome/launch screen
-	- tracks destance from user to parked car
-	- shows address label
+	- Shows map layout
+	- Store location of car using gps (drop pin)
+	- Shows user location
+	- Tracks destance from user to parked car
+	- Shows address label
 	- Button to park the car
 	- Button to get distance to car
