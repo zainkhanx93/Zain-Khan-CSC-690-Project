@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  1
 //
-//  Created by Zain Khan and Amari on 12/6/19.
+//  Created by Zain Khan and Amari  Bolmer on 12/6/19.
 //  Copyright © 2019 Zain Khan. and Amari All rights reserved.
 //
 
@@ -17,6 +17,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var buttonset: UIButton!
     @IBOutlet weak var GoButton: UIButton!
     
+    
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 150
     var priorLocation: CLLocation?
@@ -25,10 +26,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     @IBAction func getDirectionToCar(sender : UIButton)
     {
-       // self.goToPin(destination: )
-        
+        // self.goToPin(destination: )
+        print("hello there")
         self.goToPin(destination: pinLocation! )
-        print(pinLocation)
+        //        print(pinLocation as Any)
+        //        print(pinLocation as Any)
+        //        print(pinLocation as Any)
+        //        print(pinLocation as Any)
+        //        print(pinLocation as Any)
+        //        print(pinLocation as Any)
+        //        print(pinLocation as Any)
+        
         
     }
     
@@ -41,14 +49,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     
     override func viewDidLoad()
-      {
+    {
         super.viewDidLoad()
         checkLocationServices()
-        
         Map.delegate = self
-
-      }
-
+        
+        
+    }
+    
     func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus(){
         case.authorizedWhenInUse:
@@ -71,27 +79,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
     }
     func setupLocationManager()
-        {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        }
-
-        func checkLocationServices() {
+    {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    func checkLocationServices() {
         if CLLocationManager.locationServicesEnabled() {
-                    setupLocationManager()
-                    checkLocationAuthorization()
-                } else {
-                    //  alert letting the user know they have to turn this on.
-                }
-            }
-            
+            setupLocationManager()
+            checkLocationAuthorization()
+        } else {
+            //  alert letting the user know they have to turn this on.
+        }
+    }
+    
     func centerView() {
         if let location = locationManager.location?.coordinate{
             let region = MKCoordinateRegion.init (center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
             Map.setRegion(region, animated:true)
         }
     }
-            
+    
     
     func getLocation (for Map: MKMapView) -> CLLocation{
         let latitude = Map.centerCoordinate.latitude
@@ -100,34 +108,85 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         return CLLocation(latitude: latitude, longitude: longitude)
         
     }
-        
-        }
+    
+}
 
 
-
-    extension ViewController {
-        
-       
-        
-        func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-            checkLocationAuthorization()
-        }
-    }
 
 extension ViewController {
-     func setPin(){
-               let pinForUserLocation = MKPointAnnotation()
-               if let loc = locationManager.location
-               {
-                   pinForUserLocation.coordinate = loc.coordinate
-                pinLocation = loc.coordinate
-               }
-               
-               pinForUserLocation.title  = "Car Location"
-               Map.addAnnotation(pinForUserLocation).self
+    
+    
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        checkLocationAuthorization()
+    }
+}
+
+extension ViewController {
+    func setPin(){
+        let pinForUserLocation = MKPointAnnotation()
+        
+        if let loc = locationManager.location
+        {
+            pinForUserLocation.coordinate = loc.coordinate
+            pinLocation = loc.coordinate
+            let getLat : CLLocationDegrees = pinLocation!.latitude
+            let getLon : CLLocationDegrees = pinLocation!.longitude
+            let getNewLocation:  CLLocation = CLLocation(latitude: getLat, longitude: getLon)
+            
+            let GeoLocation = CLGeocoder()
+            GeoLocation.reverseGeocodeLocation(getNewLocation){ [weak self] (placemarks, error) in
+                guard let self = self else { return }
+                
+                if let _ = error {
+                    return
+                }
+                
+                guard let placemarks = placemarks?.first else {
+                    return
+                }
+                let StNumber = placemarks.subThoroughfare ?? ""
+                let StName = placemarks.thoroughfare ?? ""
+                print(StName, StNumber)
+                DispatchQueue.main.async {
+                }
+                let viewControllerB = ViewControllerToText()
+                viewControllerB.selectedName = "\(StNumber) \(StName)"
+                
+                
+                //                    navigationController?.pushViewController(viewControllerB, animated: true)
+            }
+        }
+        //        self.ParkedLocation.text = \
+        //                                let center = getLocation(for: Map)
+        
+        
+        //                guard let priorLocation = self.priorLocation else {return nil}
+        
+        //                //                guard center.distance(from: priorLocation) > 5 else {return nil}
+        //                                self.priorLocation = center
+        //                                GeoLocation.reverseGeocodeLocation(center){
+        //        }
+        
+        pinForUserLocation.title  = "Car Location"
+        Map.addAnnotation(pinForUserLocation).self
         Map.showAnnotations([pinForUserLocation], animated: true)
         
         self.goToPin(destination:pinForUserLocation.coordinate)
+        
+        //        let GeoLocation = CLGeocoder()
+        
+        
+        //        var centre = mapView.centerCoordinate as CLLocationCoordinate2D
+        
+        
+        //          var getLat: CLLocationDegrees = centre.latitude
+        //          var getLon: CLLocationDegrees = centre.longitude
+        
+        
+        //          var getMovedMapCenter: CLLocation =  CLLocation(latitude: getLat, longitude: getLon)
+        
+        
         
         
     }
@@ -140,7 +199,9 @@ extension ViewController {
         
         let CLItem = MKMapItem(placemark: CLPlaceMark)
         let destItem = MKMapItem(placemark: destPlaceMark)
-        
+        //        print(CLItem)
+        //        print(destItem)
+        print("\n\n\n\n\n")
         let destinationRequest = MKDirections.Request()
         destinationRequest.source = CLItem
         destinationRequest.destination = destItem
@@ -148,37 +209,43 @@ extension ViewController {
         destinationRequest.requestsAlternateRoutes = true
         
         let directions = MKDirections(request: destinationRequest)
-        directions.calculate { (response, error) in
-            guard let response = response else {
-                if let error = error {
+        directions.calculate { [unowned self]response, error in
+            guard let unwrappedResponse = response else {
+                if error != nil {
                     print("Something is wrong : ")
                 }
                 return
             }
-            
-          let route = response.routes[0]
-          self.Map.addOverlay(route.polyline)
-          self.Map.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-            
+            for route in unwrappedResponse.routes{
+                self.Map.addOverlay((route.polyline))
+                self.Map.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                
+                //                self.Map.addOverlay(route.polyline)
+                //              self.Map.setVisibleMapRect((route.polyline), animated: true)
+            }
+            //          let route = response.routes[0]
+            //          self.Map.addOverlay(route.polyline)
+            //          self.Map.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+            //
         }
     }
     
     func Map (_ Map: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer{
         let renderer = MKPolylineRenderer(overlay: overlay as! MKPolyline)
-        renderer.strokeColor = UIColor.green
-        renderer.lineWidth = 3.0
+        renderer.strokeColor = UIColor.blue
+        renderer.lineWidth = 4.0
         return renderer
     }
-
-    func mapView(_ mapview: MKMapView, viewFor annotation: MKAnnotation)-> MKAnnotationView?
-    {
+    
+    func mapView(_ mapview: MKMapView, viewFor annotation: MKAnnotation)-> MKAnnotationView?{
+        //    func mapView (_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer{
         var view = mapview.dequeueReusableAnnotationView(withIdentifier: "resuseIdentifer") as? MKMarkerAnnotationView
         if view == nil{
             view = MKMarkerAnnotationView(annotation: nil, reuseIdentifier: "reuseIdentifer")
         }
         view?.annotation = annotation
         view?.displayPriority = .required
-       
+        
         
         
         let center = getLocation(for: Map)
@@ -190,7 +257,7 @@ extension ViewController {
         guard center.distance(from: priorLocation) > 5 else {return nil}
         self.priorLocation = center
         GeoLocation.reverseGeocodeLocation(center){ [weak self] (placemarks, error) in
-        guard let self = self else { return }
+            guard let self = self else { return }
             
             if let _ = error {
                 return
@@ -204,11 +271,13 @@ extension ViewController {
             
             DispatchQueue.main.async {
                 self.addressLabel.text = "\(StNumber) \(StName)"
+                //                self.ParkedLocation.text = '\(
             }
-            }
-        return view
         }
-
+        
+        return view
     }
-
     
+}
+
+
