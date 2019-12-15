@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		981A382223A2D4CC000EDD11 /* Timeline_Cover_doNotRename45.png in Resources */ = {isa = PBXBuildFile; fileRef = 981A382123A2D4CC000EDD11 /* Timeline_Cover_doNotRename45.png */; };
 		981A382423A2D6D9000EDD11 /* parking.png in Resources */ = {isa = PBXBuildFile; fileRef = 981A382323A2D6D9000EDD11 /* parking.png */; };
 		981A382823A2F0EB000EDD11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981A382723A2F0EB000EDD11 /* ViewController.swift */; };
-		981A382A23A2F4CC000EDD11 /* ViewControllerextenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981A382923A2F4CC000EDD11 /* ViewControllerextenstion.swift */; };
 		981A382D23A2F537000EDD11 /* ViewControllerToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981A382B23A2F537000EDD11 /* ViewControllerToText.swift */; };
 		981A382E23A2F537000EDD11 /* ViewControllerToText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 981A382C23A2F537000EDD11 /* ViewControllerToText.xib */; };
 		BF158E28239A58AC000357F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF158E27239A58AC000357F3 /* AppDelegate.swift */; };
@@ -40,10 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		981A382123A2D4CC000EDD11 /* Timeline_Cover_doNotRename45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Timeline_Cover_doNotRename45.png; path = ../../../Desktop/Timeline_Cover_doNotRename45.png; sourceTree = "<group>"; };
 		981A382323A2D6D9000EDD11 /* parking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = parking.png; path = ../../../../Downloads/parking.png; sourceTree = "<group>"; };
 		981A382723A2F0EB000EDD11 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		981A382923A2F4CC000EDD11 /* ViewControllerextenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerextenstion.swift; sourceTree = "<group>"; };
 		981A382B23A2F537000EDD11 /* ViewControllerToText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerToText.swift; sourceTree = "<group>"; };
 		981A382C23A2F537000EDD11 /* ViewControllerToText.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewControllerToText.xib; sourceTree = "<group>"; };
 		BF158E24239A58AC000357F3 /* 1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 1.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,7 +85,6 @@
 		BF158E1B239A58AC000357F3 = {
 			isa = PBXGroup;
 			children = (
-				981A382123A2D4CC000EDD11 /* Timeline_Cover_doNotRename45.png */,
 				BF158E26239A58AC000357F3 /* 1 */,
 				BF158E3D239A58AF000357F3 /* 1Tests */,
 				BF158E48239A58AF000357F3 /* 1UITests */,
@@ -113,7 +108,6 @@
 				BF158E27239A58AC000357F3 /* AppDelegate.swift */,
 				BF158E29239A58AC000357F3 /* SceneDelegate.swift */,
 				981A382723A2F0EB000EDD11 /* ViewController.swift */,
-				981A382923A2F4CC000EDD11 /* ViewControllerextenstion.swift */,
 				981A382B23A2F537000EDD11 /* ViewControllerToText.swift */,
 				981A382C23A2F537000EDD11 /* ViewControllerToText.xib */,
 				BF158E2D239A58AC000357F3 /* Main.storyboard */,
@@ -247,7 +241,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				981A382223A2D4CC000EDD11 /* Timeline_Cover_doNotRename45.png in Resources */,
 				BF158E34239A58AE000357F3 /* LaunchScreen.storyboard in Resources */,
 				981A382E23A2F537000EDD11 /* ViewControllerToText.xib in Resources */,
 				BF158E31239A58AE000357F3 /* Assets.xcassets in Resources */,
@@ -279,7 +272,6 @@
 			files = (
 				981A382823A2F0EB000EDD11 /* ViewController.swift in Sources */,
 				981A382D23A2F537000EDD11 /* ViewControllerToText.swift in Sources */,
-				981A382A23A2F4CC000EDD11 /* ViewControllerextenstion.swift in Sources */,
 				BF158E28239A58AC000357F3 /* AppDelegate.swift in Sources */,
 				BF158E2A239A58AC000357F3 /* SceneDelegate.swift in Sources */,
 			);

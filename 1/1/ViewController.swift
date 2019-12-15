@@ -21,6 +21,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 150
     var priorLocation: CLLocation?
+    var strName: String? = nil
+    var strNumber:  String? = nil
     
     var pinLocation: CLLocationCoordinate2D?
     
@@ -56,7 +58,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         
     }
-    
+//  overrride func prepare(for segue: UIStoryboard, sender: Any?){
+//        if let LocationParked = segue.destination as? LocationParked{
+//            LocationParked.text = textField.text
+//        }
+//    }
+
     func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus(){
         case.authorizedWhenInUse:
@@ -145,14 +152,20 @@ extension ViewController {
                 guard let placemarks = placemarks?.first else {
                     return
                 }
-                let StNumber = placemarks.subThoroughfare ?? ""
-                let StName = placemarks.thoroughfare ?? ""
-                print(StName, StNumber)
-                DispatchQueue.main.async {
-                }
-                let viewControllerB = ViewControllerToText()
-                viewControllerB.selectedName = "\(StNumber) \(StName)"
+                let StrNumber = placemarks.subThoroughfare ?? ""
+                let StrName = placemarks.thoroughfare ?? ""
+                print(StrName, StrNumber)
+ 
+//// let tabBarController = UITabBarController()
+//                let viewControllerB = TableViewControllerParked()
+//                viewControllerB.selectedName = "Taylor Swift"
+//                viewControllerB.delegate = self
+//                navigationController?.pushViewController(viewControllerB, animated: true)
+
                 
+//                let viewControllerB = ViewController()
+//                viewControllerB.selectedName = "\(StrNumber) \(StrName)"
+//                viewControllerB.dothis()
                 
                 //                    navigationController?.pushViewController(viewControllerB, animated: true)
             }

@@ -8,13 +8,19 @@
 
 import UIKit
 
-class ViewControllerToText: UIViewController {
+class LocationParked: UIViewController {
     @IBOutlet weak var ParkedLocation: UILabel!
     var selectedName: String = "Anonymous"
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        DispatchQueue.main.async {
+            self.ParkedLocation.text = self.selectedName
+            print(self.ParkedLocation ?? "annoy")
+        
+        }
 
         // Do any additional setup after loading the view.
     }
